@@ -1,5 +1,6 @@
 import typer
-from cloudnine.ui import welcome
+from cloudnine.ui import welcome, show_devices
+from cloudnine.devices.manager import DeviceManager
 
 app = typer.Typer(
     help="☁ Cloud Nine Protocol"
@@ -13,6 +14,11 @@ def main(ctx: typer.Context):
     """
     if ctx.invoked_subcommand is None:
         welcome()
+
+        manager = DeviceManager()
+        devices = manager.detect()
+
+        show_devices(devices)
 
 
 @app.command()

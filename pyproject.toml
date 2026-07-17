@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloud-nine"
+version = "0.1.0"
+description = "Cloud Nine Protocol"
+
+dependencies = [
+    "typer",
+    "rich",
+    "psutil",
+    "watchdog",
+    "pyyaml"
+]
+
+[project.scripts]
+c9 = "cloudnine.cli:app"
