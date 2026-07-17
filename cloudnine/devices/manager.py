@@ -1,6 +1,6 @@
 import platform
 
-from cloudnine.devices.providers.linux import LinuxProvider
+from cloudnine.devices.providers.linux.detector import LinuxProvider
 
 
 class DeviceManager:

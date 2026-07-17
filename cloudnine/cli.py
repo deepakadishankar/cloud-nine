@@ -1,6 +1,7 @@
 import typer
 from cloudnine.ui import welcome, show_devices
 from cloudnine.devices.manager import DeviceManager
+from cloudnine.database.connection import initialize_database
 
 app = typer.Typer(
     help="☁ Cloud Nine Protocol"
@@ -12,6 +13,8 @@ def main(ctx: typer.Context):
     """
     Launch Cloud Nine.
     """
+    initialize_database()
+
     if ctx.invoked_subcommand is None:
         welcome()
 
@@ -20,6 +23,9 @@ def main(ctx: typer.Context):
 
         show_devices(devices)
 
+@app.callback()
+def startup():
+    initialize_database()
 
 @app.command()
 def devices():

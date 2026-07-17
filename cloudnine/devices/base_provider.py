@@ -1,10 +1,10 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from cloudnine.devices.models.device import Device
+from cloudnine.devices.models.device_passport import DevicePassport
 
 
-class DeviceProvider(ABC):
+class BaseProvider(ABC):
     """Base class for all device providers."""
 
     @abstractmethod
